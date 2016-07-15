@@ -36,9 +36,12 @@ include_directories(${PROJECT_SOURCE_DIR}/include)
 
 export(PACKAGE MAPREDUCE)
 
-# Create the executables
+# Create the examples
 add_executable (friends examples/friends/friends.cpp)
 target_link_libraries(friends ${Boost_EXCEPTION_LIBRARY} ${Boost_FILESYSTEM_LIBRARY} ${Boost_SYSTEM_LIBRARY} ${Boost_IOSTREAMS_LIBRARY})
+
+add_executable (prime examples/prime/prime.cpp)
+target_link_libraries(prime ${Boost_EXCEPTION_LIBRARY} ${Boost_FILESYSTEM_LIBRARY} ${Boost_SYSTEM_LIBRARY} ${Boost_IOSTREAMS_LIBRARY})
 
 # Install the Header files preserving the directory
 set(HEADER_FILES include/mapreduce.hpp
