@@ -19,6 +19,7 @@
 #include <thread>
 #include <cstdint>
 #include <boost/config.hpp>
+#include <ios>
 
 namespace mapreduce {
 namespace detail {
@@ -146,7 +147,7 @@ void run(mapreduce::specification &spec, mapreduce::results &result)
 {
     typename Job::datasource_type datasource(spec);
     Job job(datasource, spec);
-    job.run<mapreduce::schedule_policy::cpu_parallel<Job> >(result);
+    job.template run<mapreduce::schedule_policy::cpu_parallel<Job> >(result);
 }
 
 }   // namespace mapreduce

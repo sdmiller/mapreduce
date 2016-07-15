@@ -15,6 +15,10 @@ struct null_combiner;
 
 namespace detail {
 
+  inline size_t length(std::string str){
+    return str.length();
+  }
+
 struct file_lines_comp
 {
     template<typename T>
@@ -490,7 +494,7 @@ class local_disk : detail::noncopyable
     }
 
     // receive intermediate result
-    bool const insert(typename key_type                     const &key,
+    bool const insert(key_type                     const &key,
                       typename reduce_task_type::value_type const &value)
     {
         size_t const partition = partitioner_(key, num_partitions_);
